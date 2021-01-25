@@ -48,7 +48,6 @@
 | cost_id            | integer | null: false |
 | prefecture_code_id | integer | null: false |
 | day_id             | integer | null:false |
-| seller_id          | integer | null: false |
 
 
 ### Association
