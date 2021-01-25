@@ -11,8 +11,6 @@
 | family_name |string |null:false |
 | first_name_kana | string | null:false | 
 | family_name_kana | string | null:false |
-| birth_year | date | null:false |
-| birth_month | date | null:false |
 | birth_day | date | null:false |
 
 
@@ -32,7 +30,7 @@
 | building_name	| string |
 | phone_number |string | null:false |
 | order | references | null: false, foreign_key: true |
-| seller_id |references | foreign_key: true |
+| seller_id | integer | null: false |
 
 ### Association
 
@@ -50,23 +48,23 @@
 | category | references | null: false, foreign_key: true |
 | condition | references | null: false,foreign_key: true |
 | cost_id | references	| null: false,foreign_key: true |
-| prefecture_code | integer | null: false |
+| prefecture_code_id | integer | null: false |
 | day | references | null: false, foreign_key: true |
 | deal_closed_date | timestamp |
+| seller_id | integer | null: false |
 
 
 ### Association
 
 - belongs_to :user
 - has_many :orders
-- belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
 
 ## orders テーブル
 
 | Column | Type | Options |
 | ---------- | ---------- | ------------------------------ |
-| user_id | string | null: false |
-| item_id | string | null: false |
+| user_id | integer | null: false |
+| item_id | integer | null: false |
 
 ### Association
 
