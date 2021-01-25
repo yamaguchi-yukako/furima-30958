@@ -30,41 +30,38 @@
 | building_name	| string |
 | phone_number |string | null:false |
 | order | references | null: false, foreign_key: true |
-| seller_id | integer | null: false |
 
 ### Association
 
 - belongs_to :order
-- belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
 
 
 ## items テーブル
 
 | Column | Type | Options |
 | ---------- | ---------- | ——————————————— |
-| name | string | null: false |
-| text | text | null: false |
-| price | integer | null: false |
-| category | references | null: false, foreign_key: true |
-| condition | references | null: false,foreign_key: true |
-| cost_id | references	| null: false,foreign_key: true |
+| name               | string | null: false |
+| text               | text | null: false |
+| price              | integer | null: false |
+| category_id        | integer | null: false |
+| condition_id       | integer | null:false |
+| cost_id            | integer | null: false |
 | prefecture_code_id | integer | null: false |
-| day | references | null: false, foreign_key: true |
-| deal_closed_date | timestamp |
-| seller_id | integer | null: false |
+| day_id             | integer | null:false |
+| seller_id          | integer | null: false |
 
 
 ### Association
 
 - belongs_to :user
-- has_many :orders
+- has_one :order
 
 ## orders テーブル
 
 | Column | Type | Options |
 | ---------- | ---------- | ------------------------------ |
-| user_id | integer | null: false |
-| item_id | integer | null: false |
+| user | references | null: false , foreign_key: true|
+| item | references | null: false , foreign_key: true|
 
 ### Association
 
@@ -75,5 +72,7 @@
 #Gem：jp_prefecture 書く
 #イメージではアクティブストレージを使用する
 #アクティブハッシュを使う
+#belongs_to_active_hash :category
 #カードはdbに保存しないためテーブルを作成しない
+#gem 'active_hash'
 
