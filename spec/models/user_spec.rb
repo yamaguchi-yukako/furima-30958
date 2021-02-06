@@ -33,16 +33,18 @@ context '新規登録できないとき' do
     @user.password = '00000' 
     @user.password_confirmation = '00000'
     @user.valid?
-      expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+    expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
   end
   it 'passwordが存在してもpassword_confirmationが空では登録できない' do
     @user.password_confirmation = ''
     @user.valid?
-      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
   end
 end
-end
+
+
+
 
 
     
