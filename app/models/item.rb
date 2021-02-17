@@ -5,7 +5,11 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
-  
+  belongs_to :condition
+  belongs_to :cost
+  belongs_to :prefecture_code
+  belongs_to :day
+
   with_options presence: true do
     validates :name
     validates  :price, numericality:{ only_integer: true}
