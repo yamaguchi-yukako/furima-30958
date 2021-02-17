@@ -73,5 +73,5 @@
 #アクティブハッシュを使う
 #belongs_to_active_hash :category
 #カードはdbに保存しないためテーブルを作成しない
-#gem 'active_hash'
+
 
