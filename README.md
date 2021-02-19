@@ -41,13 +41,15 @@
 | Column | Type | Options |
 | ---------- | ---------- | ——————————————— |
 | name               | string | null: false |
-| text               | text | null: false |
+| info               | text | null: false |
 | price              | integer | null: false |
 | category_id        | integer | null: false |
 | condition_id       | integer | null:false |
 | cost_id            | integer | null: false |
 | prefecture_code_id | integer | null: false |
 | day_id             | integer | null:false |
+| user               | references | null:false, foreign_key: true |
+
 
 
 ### Association
