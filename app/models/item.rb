@@ -14,6 +14,7 @@ class Item < ApplicationRecord
     validates :name
     validates  :price
     validates :info
+    validates :image
   end
   
   
