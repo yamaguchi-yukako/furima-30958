@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
   end
+
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -18,8 +19,10 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+
   def edit
   end
+  
   def update
     if @item.update(item_params)
       redirect_to root_path
