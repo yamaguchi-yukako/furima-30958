@@ -1,3 +1,5 @@
 class Order < ApplicationRecord
-has_one :shippingaddres
+has_one :shippingaddress
+belongs_to :user
+belongs_to :item
 end
