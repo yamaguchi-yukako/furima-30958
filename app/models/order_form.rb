@@ -10,11 +10,12 @@ class OrderForm
     validates :city
     validates :house_number
     validates :building_name
-    validates :phone_number,  format: { with: /\A\d{11}\z/, message: 'Input only number' }
+    validates :phone_number,  format: { with: /\A\d{,11}\z/, message: 'Input only number and maximum 11disits' }
    
   end
   validates :prefecture_code_id, numericality: { other_than: 0, message: "can't be blank" }
   
+
   def save
     # 各テーブルにデータを保存する処理を書く
     order = Order.create(user_id: user_id, item_id: item_id)
