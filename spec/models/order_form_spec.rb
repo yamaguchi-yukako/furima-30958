@@ -13,6 +13,10 @@ RSpec.describe OrderForm, type: :model do
 
   describe '購入内容の確認' do
     context '購入できるとき' do
+      it "建物番号は空でも登録できること" do
+        if @orderform.building_name= ''|| @orderform.building_name= '柳ビル１０３'
+      end
+    end
     it 'all ok' do
       expect(@orderform.valid?).to eq true 
     end
@@ -63,7 +67,26 @@ RSpec.describe OrderForm, type: :model do
         @orderform.valid?
         expect(@orderform.errors.full_messages).to include("Phone number Input only number and maximum 11disits")
       end
-
+      it 'phone_numberが、半角英数混合では登録できないこと(半角英数字)' do  
+        @orderform.phone_number= 'abc123'
+        @orderform.valid?
+        expect(@orderform.errors.full_messages).to include("Phone number Input only number and maximum 11disits")
+      end
+      it 'tokenが空では購入できない' do
+        @orderform.token= ''
+        @orderform.valid?
+        expect(@orderform.errors.full_messages).to include("Token can't be blank")
+      end
+      it 'user_idが空では購入できない' do
+        @orderform.user_id= ''
+        @orderform.valid?
+        expect(@orderform.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空では購入できない' do
+        @orderform.item_id= ''
+        @orderform.valid?
+        expect(@orderform.errors.full_messages).to include("Item can't be blank")
+      end
 
 end
 end
